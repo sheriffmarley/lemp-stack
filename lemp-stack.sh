@@ -32,9 +32,6 @@ sudo apt update -y
 
 sudo apt install mariadb-server mariadb-client
 
-# Secure mysql installation
-sudo mysql_secure_installation
-
 # PHP 7.4
 sudo apt -y install lsb-release apt-transport-https ca-certificates 
 sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
@@ -44,3 +41,7 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /et
 sudo apt update -y
 
 sudo apt-get install php7.4-{fpm,bcmath,bz2,curl,ctype,fileinfo,json,openssl,pdo,tokenizer,xml,intl,gd,mbstring,mysql,zip}
+
+
+# Secure mysql installation
+sudo mysql_secure_installation
