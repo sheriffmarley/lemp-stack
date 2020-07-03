@@ -16,7 +16,7 @@ curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
     
 sudo apt-key fingerprint ABF5BD827BD9BF62
      
-sudo apt update
+sudo apt update -y
     
 sudo apt install nginx
 
@@ -28,7 +28,7 @@ sudo apt -y install software-properties-common gnupg2
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
 sudo add-apt-repository 'deb [arch=amd64] http://mariadb.mirror.liquidtelecom.com/repo/10.4/debian buster main'
 
-sudo apt update
+sudo apt update -y
 
 sudo apt install mariadb-server mariadb-client
 
@@ -41,6 +41,6 @@ sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gp
 
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
 
-sudo apt update
+sudo apt update -y
 
 sudo apt-get install php7.4-{fpm,bcmath,bz2,curl,ctype,fileinfo,json,openssl,pdo,tokenizer,xml,intl,gd,mbstring,mysql,zip}
