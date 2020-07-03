@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Install mandatory files
 apt install curl nano
