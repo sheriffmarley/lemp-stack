@@ -1,6 +1,9 @@
 read -p "Host name? [example.com]: " hostname
 hostname=${hostname:-example.com}
 
+read -p "PHP Version? [7.4]: " phpversion
+phpversion=${phpversion:-7.4}
+
 cat > /etc/nginx/conf.d/$hostname.conf << EOL
 
     server {
@@ -36,7 +39,7 @@ cat > /etc/nginx/conf.d/$hostname.conf << EOL
             try_files \$uri \$uri/ /index.php?\$query_string;
 
              location ~ \.php\$ {
-                        fastcgi_pass   unix:/run/php/php7.3-fpm.sock;
+                        fastcgi_pass   unix:/run/php/php${phpversion}-fpm.sock;
                         fastcgi_index  index.php;
                         fastcgi_param  SCRIPT_FILENAME  \$document_root\$fastcgi_script_name;
                         include        fastcgi_params;
