@@ -1,3 +1,4 @@
+#!/bin/sh
 
 # Install phpMyAdmin 5
 sudo apt install php-mbstring php-zip php-gd
