@@ -19,7 +19,7 @@ sudo nano /usr/share/phpmyadmin/config.inc.php
 
 sudo apt install pwgen
 
-uniquegen = $(pwgen -s 32 1)
+uniquegen=$(pwgen -s 32 1)
 
 # Set blowfish secret
 sed -i "s/\\$cfg['blowfish_secret'\] = '';/\$cfg['blowfish_secret'\] = '$uniquegen';/g" /usr/share/phpmyadmin/config.inc.php
@@ -30,7 +30,7 @@ sed -i "s|// \\$cfg\['Servers'\]|\\$cfg\['Servers'\]|g" /usr/share/phpmyadmin/co
 sed -i "s|\$cfg\['Servers'\]\[\$i\]\['controlhost'\] = '';|\$cfg\['Servers'\]\[\$i\]\['controlhost'\] = 'localhost';|g" /usr/share/phpmyadmin/config.inc.php
 sed -i "s|\$cfg\['Servers'\]\[\$i\]\['controlport'\] = '';|\$cfg\['Servers'\]\[\$i\]\['controlport'\] = '3306';|g" /usr/share/phpmyadmin/config.inc.php
 
-controlpass = $(pwgen -s 64 1)
+controlpass=$(pwgen -s 64 1)
 sed -i "s|\$cfg\['Servers'\]\[\$i\]\['controlpass'\] = '.*';|\$cfg\['Servers'\]\[\$i\]\['controlpass'\] = '${controlpass}';|g" /usr/share/phpmyadmin/config.inc.php
 
 # Create table
