@@ -1,3 +1,5 @@
+#!/bin/sh
+
 read -p "Host name? [example.com]: " hostname
 hostname=${hostname:-example.com}
 
