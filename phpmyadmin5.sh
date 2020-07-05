@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Install phpMyAdmin 5
-sudo apt install php-mbstring php-zip php-gd
+sudo apt install -y php7.4-mbstring php7.4-zip php7.4-gd wget
 
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.zip
 
@@ -17,7 +17,7 @@ sudo cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config
 
 sudo nano /usr/share/phpmyadmin/config.inc.php
 
-sudo apt install pwgen
+sudo apt install -y pwgen
 
 uniquegen=$(pwgen -s 32 1)
 
