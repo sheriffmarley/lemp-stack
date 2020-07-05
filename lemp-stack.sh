@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install mandatory files
-apt install curl nano
+apt install curl htop wget 
 
 
 # Install nginx from nginx repo
