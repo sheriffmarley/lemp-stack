@@ -66,8 +66,8 @@ cat > /etc/nginx/conf.d/$hostname.conf << EOL
         }
         
         location ~ \.php\$ {
-            try_files $uri =404;
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            try_files \$uri =404;
+            fastcgi_split_path_info ^(.+\.php)(/.+)\$;
             fastcgi_pass   unix:/run/php/php${phpversion}-fpm.sock;
             fastcgi_index  index.php;
             fastcgi_param  SCRIPT_FILENAME  \$document_root\$fastcgi_script_name;
