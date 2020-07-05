@@ -66,6 +66,13 @@ htpasswdfile=/etc/nginx/.htpasswd
 read -p ".htaccess user? " htaccessuser
 sudo htpasswd -c $htpasswdfile $htaccessuser
 
+dhparam=/etc/nginx/certs/dhparam-2048.pem
+if [ ! -f "$dhparam" ]; then
+
+    echo "Create dhparam file $dhparam"
+    openssl dhparam -out $dhparam 2048
+fi
+
 cat > /etc/nginx/conf.d/$subdomain.$hostname.conf << EOL
     server {
     
@@ -74,7 +81,7 @@ cat > /etc/nginx/conf.d/$subdomain.$hostname.conf << EOL
         #add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";
         ssl_certificate         /etc/nginx/certs/ssl-bundle.crt";
         ssl_certificate_key     /etc/nginx/certs/private/server.key";
-        ssl_dhparam /etc/nginx/certs/dhparam.pem;
+        ssl_dhparam $dhparam;
         ssl_session_cache shared:SSL:10m;
         ssl_session_timeout  30m;
         ssl_session_tickets off;
