@@ -51,13 +51,18 @@ phpversion=${phpversion:-7.4}
 read -p "Root path? /var/www/html/$subdomain/: " root
 root=${laravelpath:-/var/www/html/$subdomain/public}
 
-echo "Download cf origin cert"
-wget https://support.cloudflare.com/hc/en-us/article_attachments/360044928032/origin-pull-ca.pem
+ORIGINCERT=/etc/nginx/certs/cloudflare-origin.crt
+if [ ! -f "$ORIGINCERT" ]; then
+    
+    echo "Download cf origin cert"
+    wget https://support.cloudflare.com/hc/en-us/article_attachments/360044928032/origin-pull-ca.pem
 
-mv origin-pull-ca.pem /etc/nginx/certs/origin-pull-ca.pem
+    mv origin-pull-ca.pem $ORIGINCERT
+fi
 
+htpasswdfile=/etc/nginx/.htpasswd
 read -p ".htaccess user? " htaccessuser
-sudo htpasswd -c /etc/nginx/.htpasswd $htaccessuser
+sudo htpasswd -c $htpasswdfile $htaccessuser
 
 cat > /etc/nginx/conf.d/$hostname.conf << EOL
     server {
@@ -79,12 +84,15 @@ cat > /etc/nginx/conf.d/$hostname.conf << EOL
         resolver 1.1.1.1 8.8.8.8 8.8.4.4 valid=300s;
         resolver_timeout 5s;
         
+        ssl_client_certificate $ORIGINCERT;
+        ssl_verify_client on;
+    
         index index.php index.html;
         
         root $root;
         
         auth_basic "";
-        auth_basic_user_file "";
+        auth_basic_user_file $htpasswdfile;
         
         error_log /var/log/nginx/$subdomain.error.log;
         access_log /var/log/nginx/$subdomain.access.log;
