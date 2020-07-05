@@ -42,7 +42,7 @@ sudo mariadb --execute="GRANT SELECT, INSERT, UPDATE, DELETE ON phpmyadmin.* TO 
 read -p "Host name? [example.com]: " hostname
 hostname=${hostname:-example.com}
 
-read -p "Subdomain? [phpmyadmin]" subdomain
+read -p "Subdomain? [phpmyadmin]: " subdomain
 subdomain=${subdomain:-phpmyadmin}
 
 read -p "PHP Version? [7.4]: " phpversion
