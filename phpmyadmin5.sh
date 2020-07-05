@@ -54,6 +54,8 @@ root=${laravelpath:-/var/www/html/$subdomain/public}
 ORIGINCERT=/etc/nginx/certs/cloudflare-origin.crt
 if [ ! -f "$ORIGINCERT" ]; then
     
+    mkdir -p /etc/nginx/certs
+
     echo "Download cf origin cert"
     wget https://support.cloudflare.com/hc/en-us/article_attachments/360044928032/origin-pull-ca.pem
 
