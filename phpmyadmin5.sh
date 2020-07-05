@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Install phpMyAdmin 5
-sudo apt install -y php7.4-mbstring php7.4-zip php7.4-gd wget apache2-utils
+sudo apt install -y php7.4-mbstring php7.4-zip php7.4-gd wget apache2-utils unzip
 
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.zip
 
