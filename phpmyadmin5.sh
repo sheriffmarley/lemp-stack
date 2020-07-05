@@ -15,8 +15,6 @@ sudo chown -R www-data:www-data /var/lib/phpmyadmin
 
 sudo cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
 
-sudo nano /usr/share/phpmyadmin/config.inc.php
-
 sudo apt install -y pwgen
 
 uniquegen=$(pwgen -s 32 1)
