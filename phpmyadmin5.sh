@@ -12,6 +12,7 @@ sudo mv phpMyAdmin-5.0.2-all-languages/ /usr/share/phpmyadmin
 sudo mkdir -p /var/lib/phpmyadmin/tmp
 
 sudo chown -R www-data:www-data /var/lib/phpmyadmin
+sudo chown -R www-data:www-data /usr/share/phpmyadmin
 
 phpMyAdminConfig=/usr/share/phpmyadmin/config.inc.php
 
