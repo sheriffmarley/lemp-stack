@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Install mandatory files
-apt install curl htop wget sudo
+apt install -y curl htop wget sudo
 
 
 # Install nginx from nginx repo
-sudo apt install curl gnupg2 ca-certificates lsb-release
+sudo apt install -y gnupg2 ca-certificates lsb-release
 
 
 echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
@@ -18,19 +18,19 @@ sudo apt-key fingerprint ABF5BD827BD9BF62
      
 sudo apt update -y
     
-sudo apt install nginx
+sudo apt install -y nginx
 
 # Install MariaB
 
 sudo apt -y update
-sudo apt -y install software-properties-common gnupg2
+sudo apt -y install -y software-properties-common gnupg2
 
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
 sudo add-apt-repository 'deb [arch=amd64] http://mariadb.mirror.liquidtelecom.com/repo/10.4/debian buster main'
 
 sudo apt update -y
 
-sudo apt install mariadb-server mariadb-client
+sudo apt install -y mariadb-server mariadb-client
 
 # PHP 7.4
 sudo apt -y install lsb-release apt-transport-https ca-certificates 
