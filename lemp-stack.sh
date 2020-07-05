@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install mandatory files
-apt install curl htop wget 
+apt install curl htop wget sudo
 
 
 # Install nginx from nginx repo
