@@ -69,7 +69,7 @@ sudo htpasswd -c $htpasswdfile $htaccessuser
 cat > /etc/nginx/conf.d/$subdomain.$hostname.conf << EOL
     server {
     
-        server_name $subdomain.$hostname;
+        server_name  $subdomain.$hostname;
         listen       443 ssl default_server;
         #add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";
         ssl_certificate         /etc/nginx/certs/ssl-bundle.crt";
