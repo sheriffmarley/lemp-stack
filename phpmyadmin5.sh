@@ -49,7 +49,16 @@ read -p "PHP Version? [7.4]: " phpversion
 phpversion=${phpversion:-7.4}
 
 read -p "Root path? /var/www/html/$subdomain/: " root
-root=${laravelpath:-/var/www/html/$subdomain/public}
+root=${root:-/var/www/html/$subdomain}
+
+read -p "PHPMyAdmin link? /var/www/html/$subdomain/mytadmin: " phpmyadminlink
+phpmyadminlink=${phpmyadminlink:-/var/www/html/$subdomain/mytadmin}
+
+sudo mkdir -p $root
+sudo mkdir -p $phpmyadminlink
+sudo ln -s /usr/share/phpmyadmin $phpmyadminlink
+
+sudo chown -R -c www-data:www-data $root
 
 ORIGINCERT=/etc/nginx/certs/cloudflare-origin.crt
 if [ ! -f "$ORIGINCERT" ]; then
