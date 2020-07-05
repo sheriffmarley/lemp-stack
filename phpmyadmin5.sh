@@ -79,8 +79,8 @@ cat > /etc/nginx/conf.d/$subdomain.$hostname.conf << EOL
         server_name  $subdomain.$hostname;
         listen       443 ssl default_server;
         #add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";
-        ssl_certificate         /etc/nginx/certs/ssl-bundle.crt";
-        ssl_certificate_key     /etc/nginx/certs/private/server.key";
+        ssl_certificate         /etc/nginx/certs/server.crt;
+        ssl_certificate_key     /etc/nginx/certs/private/server.key;
         ssl_dhparam $dhparam;
         ssl_session_cache shared:SSL:10m;
         ssl_session_timeout  30m;
