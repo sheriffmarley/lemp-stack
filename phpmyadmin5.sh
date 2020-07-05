@@ -56,8 +56,6 @@ phpmyadminlink=${phpmyadminlink:-/var/www/html/$subdomain/mytadmin}
 
 echo "Create directories: $root"
 sudo mkdir -p $root
-echo "Create directory: $phpmyadminlink"
-sudo mkdir -p $phpmyadminlink
 
 echo "Link /usr/share/phpmyadmin to $phpmyadminlink"
 sudo ln -s /usr/share/phpmyadmin $phpmyadminlink
