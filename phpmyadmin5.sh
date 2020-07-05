@@ -107,12 +107,12 @@ cat > /etc/nginx/conf.d/$subdomain.$hostname.conf << EOL
         access_log /var/log/nginx/$subdomain.access.log;
         
         location / {
-            try_files $uri $uri/ =404;
+            try_files \$uri \$uri/ =404;
         }
         
         location ~ \.php\$ {
-            try_files $uri =404;
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            try_files \$uri =404;
+            fastcgi_split_path_info ^(.+\.php)(/.+)\$;
             fastcgi_pass   unix:/run/php/php${phpversion}-fpm.sock;
             fastcgi_index  index.php;
             fastcgi_param  SCRIPT_FILENAME  \$document_root\$fastcgi_script_name;
