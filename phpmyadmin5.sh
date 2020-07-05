@@ -54,8 +54,12 @@ root=${root:-/var/www/html/$subdomain}
 read -p "PHPMyAdmin link? /var/www/html/$subdomain/mytadmin: " phpmyadminlink
 phpmyadminlink=${phpmyadminlink:-/var/www/html/$subdomain/mytadmin}
 
+echo "Create directories: $root"
 sudo mkdir -p $root
+echo "Create directory: $phpmyadminlink"
 sudo mkdir -p $phpmyadminlink
+
+echo "Link /usr/share/phpmyadmin to $phpmyadminlink"
 sudo ln -s /usr/share/phpmyadmin $phpmyadminlink
 
 sudo chown -R -c www-data:www-data $root
