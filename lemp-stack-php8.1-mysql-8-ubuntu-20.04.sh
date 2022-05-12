@@ -31,8 +31,11 @@ sudo add-apt-repository ppa:ondrej/php
 
 sudo apt update -y
 
-sudo apt-get install -y php8.1-fpm php8.1-bcmath php8.1-bz2 php8.1-curl php8.1-common php8.1-json php8.1-xml php8.1-intl php8.1-gd php8.1-mbstring php8.1-mysql php8.1-zip
+sudo apt-get install -y php8.1-fpm php8.1-bcmath php8.1-bz2 php8.1-curl php8.1-common php8.1-xml php8.1-intl php8.1-gd php8.1-mbstring php8.1-mysql php8.1-zip
 
 
 # Secure mysql installation
-sudo mysql_secure_installation
+# Zuerst
+# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'mynewpassword'; 
+# ausführen
+# sudo mysql_secure_installation
