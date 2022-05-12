@@ -25,7 +25,7 @@ sudo apt install -y nginx
 # Install MySQL 8
 
 sudo apt -y update
-sudo apt install mysql-server
+sudo apt install -y mysql-server
 
 # PHP 8.1
 sudo apt -y install lsb-release apt-transport-https ca-certificates 
