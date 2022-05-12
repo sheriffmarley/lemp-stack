@@ -9,15 +9,12 @@ apt install -y curl htop wget sudo
 # Install nginx from nginx repo
 sudo apt install -y gnupg2 ca-certificates lsb-release
 
+deb https://nginx.org/packages/ubuntu/ focal nginx
+deb-src https://nginx.org/packages/ubuntu/ focal nginx
 
-echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
-    
-echo "deb http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
-    
-curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
-    
-sudo apt-key fingerprint ABF5BD827BD9BF62
-     
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $key
+sudo apt update
+        
 sudo apt update -y
     
 sudo apt install -y nginx
