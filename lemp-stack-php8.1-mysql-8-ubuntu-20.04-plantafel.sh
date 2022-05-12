@@ -69,3 +69,9 @@ sudo cp /www/plantafel-digital/dev/sh/update_nginx_conf /www/plantafel-digital/s
 
 sudo chmod +Xx /www/plantafel-digital/sudoscripts/update_nginx_conf
 
+# CERTBOT
+
+# CRONJOBS
+(crontab -l ; echo "14 5 * * * /usr/bin/certbot renew --quiet --post-hook "/usr/sbin/service nginx reload" > /dev/null 2>&1") | crontab -
+
+(crontab -l -u www-data ; echo "* * * * * cd $SCRIPTDIR && php artisan schedule:run >> /dev/null 2>&1") | crontab -u www-data -
