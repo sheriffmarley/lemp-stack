@@ -3,7 +3,7 @@
 apt update && apt upgrade -y
 
 # Install mandatory files
-apt install -y curl htop wget sudo git
+apt install -y curl htop wget sudo git supervisor
 
 
 # Install nginx from nginx repo
