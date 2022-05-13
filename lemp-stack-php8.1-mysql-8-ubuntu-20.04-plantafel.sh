@@ -82,3 +82,5 @@ PHPINI=/etc/php/8.1/fpm/php.ini
 
 `sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 32M/g' $PHPINI`
 `sed -i 's/max_execution_time = 30/max_execution_time = 300/g' $PHPINI`
+
+npm install -g laravel-echo-server
