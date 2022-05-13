@@ -75,3 +75,10 @@ sudo chmod +Xx /www/plantafel-digital/sudoscripts/update_nginx_conf
 (crontab -l ; echo "14 5 * * * /usr/bin/certbot renew --quiet --post-hook "/usr/sbin/service nginx reload" > /dev/null 2>&1") | crontab -
 
 (crontab -l -u www-data ; echo "* * * * * cd $SCRIPTDIR && php artisan schedule:run >> /dev/null 2>&1") | crontab -u www-data -
+
+
+# UPDATE php.ini
+PHPINI=/etc/php/8.1/fpm/php.ini
+
+`sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 32M/g' $PHPINI`
+`sed -i 's/max_execution_time = 30/max_execution_time = 300/g' $PHPINI`
